@@ -1,0 +1,27 @@
+{
+  "name": "pellegrims-eslint-configs",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @pellegrims/eslint-config-base && npm run build -w @pellegrims/eslint-config-angular",
+    "test:smoke": "bash scripts/smoke-test.sh",
+    "changeset": "changeset",
+    "version:packages": "changeset version",
+    "release": "npm run build && changeset publish",
+    "publish:packages": "npm run release",
+    "prepare": "husky"
+  },
+  "description": "Shareable ESLint configurations for @pellegrims",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "prettier": "3.6.2",
+    "typescript": "^5.8.3"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
