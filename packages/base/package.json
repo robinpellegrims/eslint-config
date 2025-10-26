@@ -1,0 +1,27 @@
+{
+  "name": "@pellegrims/eslint-config-base",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0"
+  },
+  "dependencies": {
+    "@eslint/js": ">=9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "typescript-eslint": "^8.0.0"
+  }
+}

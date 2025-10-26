@@ -1,0 +1,7 @@
+/node_modules/
+/packages/*/node_modules/
+/.idea/
+/packages/*/dist/
+/packages/*/src/*.js
+/packages/*/src/*.d.ts
+/packages/*/src/*.d.ts.map
