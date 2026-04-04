@@ -6,6 +6,13 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT
 
+build_local_packages() {
+  (
+    cd "$ROOT_DIR"
+    npm run build -w @pellegrims/eslint-config-base -w @pellegrims/eslint-config-angular
+  )
+}
+
 run_base_smoke() {
   local fixture="$TMP_DIR/base-fixture"
   mkdir -p "$fixture/src"
@@ -80,13 +87,16 @@ module.exports = [...angularConfig];
 EOF
 
   cat > "$fixture/src/app.component.ts" <<EOF
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 
 @Component({
   selector: "app-root",
-  template: "<div>Hello</div>"
+  template: "<div>Hello</div>",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {}
+export class AppComponent {
+  readonly title = "hello";
+}
 EOF
 
   (
@@ -100,6 +110,9 @@ EOF
     npx eslint src/app.component.ts
   )
 }
+
+echo "Building local packages for smoke tests..."
+build_local_packages
 
 echo "Running base package smoke test..."
 run_base_smoke
