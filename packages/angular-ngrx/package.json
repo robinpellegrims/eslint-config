@@ -1,6 +1,6 @@
 {
   "name": "@pellegrims/eslint-config-angular-ngrx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
@@ -21,6 +21,6 @@
   },
   "dependencies": {
     "@ngrx/eslint-plugin": "^21.1.0",
-    "@pellegrims/eslint-config-angular": ">=2.0.0"
+    "@pellegrims/eslint-config-angular": ">=2.0.1"
   }
 }
