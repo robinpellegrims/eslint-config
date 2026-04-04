@@ -17,6 +17,18 @@ run_base_smoke() {
 }
 EOF
 
+  cat > "$fixture/tsconfig.json" <<EOF
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true
+  },
+  "include": ["src/**/*.ts"]
+}
+EOF
+
   cat > "$fixture/eslint.config.js" <<EOF
 const baseConfig = require("@pellegrims/eslint-config-base");
 
@@ -25,14 +37,15 @@ EOF
 
   cat > "$fixture/src/example.ts" <<EOF
 const greeting = "hello";
-console.log(greeting);
+console.warn(greeting);
 EOF
 
   (
     cd "$fixture"
     npm install --no-package-lock --save-dev \
       "$ROOT_DIR/packages/base" \
-      "eslint@^9"
+      "eslint@^9" \
+      "typescript@^5"
     npx eslint src/example.ts
   )
 }
@@ -45,6 +58,18 @@ run_angular_smoke() {
 {
   "name": "angular-smoke-fixture",
   "private": true
+}
+EOF
+
+  cat > "$fixture/tsconfig.json" <<EOF
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true
+  },
+  "include": ["src/**/*.ts"]
 }
 EOF
 
@@ -70,7 +95,8 @@ EOF
       "$ROOT_DIR/packages/base" \
       "$ROOT_DIR/packages/angular" \
       "@angular/core@^17" \
-      "eslint@^9"
+      "eslint@^9" \
+      "typescript@^5"
     npx eslint src/app.component.ts
   )
 }

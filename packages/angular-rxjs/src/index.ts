@@ -13,9 +13,13 @@ const config = [
     },
     rules: {
       ...rxjsRecommendedRules,
+      // Legacy mapping from rxjs-angular/prefer-async-pipe.
+      "rxjs/no-async-subscribe": "warn",
       "rxjs/no-implicit-any-catch": "error",
       "rxjs/no-unbound-methods": "error",
       "rxjs/no-unsafe-switchmap": "error",
+      // Legacy mapping from rxjs-angular/prefer-takeuntil.
+      "rxjs/no-unsafe-takeuntil": "error",
       "rxjs/finnish": [
         "error",
         {
