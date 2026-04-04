@@ -1,5 +1,11 @@
 # @pellegrims/eslint-config-base
 
+## 2.2.0
+
+### Minor Changes
+
+- 010d9e6: Enhance the base config with stricter functional and import rules, plus stronger TypeScript lint defaults.
+
 ## 2.1.0
 
 ### Minor Changes
