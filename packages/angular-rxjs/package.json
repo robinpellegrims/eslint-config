@@ -1,6 +1,6 @@
 {
   "name": "@pellegrims/eslint-config-angular-rxjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
@@ -20,7 +20,7 @@
     "eslint": "^9.0.0"
   },
   "dependencies": {
-    "@pellegrims/eslint-config-angular": ">=2.0.0",
+    "@pellegrims/eslint-config-angular": ">=2.0.1",
     "eslint-plugin-rxjs-updated": "^1.0.50"
   }
 }
