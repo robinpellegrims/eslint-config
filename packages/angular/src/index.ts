@@ -9,6 +9,7 @@ const config = tseslint.config(...baseConfig, {
   },
   rules: {
     ...(angularEslint.configs.recommended.rules as Record<string, any>),
+    "@angular-eslint/use-lifecycle-interface": "error",
     "@angular-eslint/directive-selector": [
       "error",
       { type: "attribute", prefix: "app", style: "camelCase" },
