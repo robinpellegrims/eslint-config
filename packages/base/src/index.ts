@@ -20,6 +20,7 @@ const config = tseslint.config(
       semi: ["error", "always"],
       quotes: ["error", "double"],
       ...importPlugin.configs.recommended.rules,
+      "import/no-duplicates": "error",
       "import/order": [
         "warn",
         {

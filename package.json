@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build -w @pellegrims/eslint-config-base && npm run build -w @pellegrims/eslint-config-angular",
+    "build": "node scripts/build-all.mjs",
     "test:smoke": "bash scripts/smoke-test.sh",
     "changeset": "changeset",
     "version:packages": "changeset version",

@@ -8,6 +8,9 @@ These packages use the modern ESLint flat config format (`eslint.config.js`).
 
 - `@pellegrims/eslint-config-base`: The base config for TS, ESLint, and Imports.
 - `@pellegrims/eslint-config-angular`: Extends `base` and adds Angular rules.
+- `@pellegrims/eslint-config-unicorn`: Optional Unicorn rules on top of `base`.
+- `@pellegrims/eslint-config-angular-rxjs`: Optional RxJS rules for Angular projects.
+- `@pellegrims/eslint-config-angular-ngrx`: Optional NgRx rules for Angular projects.
 
 ## Usage
 
@@ -62,3 +65,31 @@ These packages use the modern ESLint flat config format (`eslint.config.js`).
      },
    ];
    ```
+
+### Angular parity stack (optional addons)
+
+If you want stricter rules similar to the older rule surface, layer optional addons:
+
+```bash
+npm install --save-dev \
+  @pellegrims/eslint-config-angular \
+  @pellegrims/eslint-config-angular-rxjs \
+  @pellegrims/eslint-config-angular-ngrx \
+  @pellegrims/eslint-config-unicorn \
+  eslint@^9
+```
+
+```javascript
+// eslint.config.js
+const angularConfig = require("@pellegrims/eslint-config-angular");
+const angularRxjsConfig = require("@pellegrims/eslint-config-angular-rxjs");
+const angularNgrxConfig = require("@pellegrims/eslint-config-angular-ngrx");
+const unicornConfig = require("@pellegrims/eslint-config-unicorn");
+
+module.exports = [
+  ...angularConfig,
+  ...angularRxjsConfig,
+  ...angularNgrxConfig,
+  ...unicornConfig,
+];
+```
