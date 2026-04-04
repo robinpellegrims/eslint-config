@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "@angular-eslint/eslint-plugin": "^21.3.1",
+    "@angular-eslint/eslint-plugin-template": "^21.3.1",
+    "@angular-eslint/template-parser": "^21.3.1",
     "@pellegrims/eslint-config-base": ">=2.0.0",
     "typescript-eslint": "^8.0.0"
   }
