@@ -1,95 +1,138 @@
 # @pellegrims ESLint Configs
 
-This monorepo contains my shareable ESLint configurations, managed with npm workspaces.
+[![npm: base](https://img.shields.io/npm/v/@pellegrims/eslint-config-base?label=base)](https://www.npmjs.com/package/@pellegrims/eslint-config-base)
+[![npm: angular](https://img.shields.io/npm/v/@pellegrims/eslint-config-angular?label=angular)](https://www.npmjs.com/package/@pellegrims/eslint-config-angular)
+[![npm: unicorn](https://img.shields.io/npm/v/@pellegrims/eslint-config-unicorn?label=unicorn)](https://www.npmjs.com/package/@pellegrims/eslint-config-unicorn)
+[![npm: angular-rxjs](https://img.shields.io/npm/v/@pellegrims/eslint-config-angular-rxjs?label=angular-rxjs)](https://www.npmjs.com/package/@pellegrims/eslint-config-angular-rxjs)
+[![npm: angular-ngrx](https://img.shields.io/npm/v/@pellegrims/eslint-config-angular-ngrx?label=angular-ngrx)](https://www.npmjs.com/package/@pellegrims/eslint-config-angular-ngrx)
 
-These packages use the modern ESLint flat config format (`eslint.config.js`).
+Shareable ESLint flat configs (`eslint.config.js`) for TypeScript and Angular projects.
 
-## Packages
+## Available Packages
 
-- `@pellegrims/eslint-config-base`: The base config for TS, ESLint, and Imports.
-- `@pellegrims/eslint-config-angular`: Extends `base` and adds Angular rules.
-- `@pellegrims/eslint-config-unicorn`: Optional Unicorn rules on top of `base`.
-- `@pellegrims/eslint-config-angular-rxjs`: Optional RxJS rules for Angular projects.
-- `@pellegrims/eslint-config-angular-ngrx`: Optional NgRx rules for Angular projects.
+- `@pellegrims/eslint-config-base`
+  TypeScript + ESLint recommended + import rules.
+- `@pellegrims/eslint-config-angular`
+  Extends `base` and adds Angular rules.
+- `@pellegrims/eslint-config-unicorn`
+  Extends `base` and adds Unicorn rules.
+- `@pellegrims/eslint-config-angular-rxjs`
+  Extends `angular` and adds RxJS rules.
+- `@pellegrims/eslint-config-angular-ngrx`
+  Extends `angular` and adds NgRx rules.
 
-## Usage
+All packages target `eslint@^9` and use flat config.
 
-### TypeScript projects
+## Quick Start
 
-1. Create an `eslint.config.js` file in your project root.
-2. Install the base config and peer dependency:
-   ```bash
-   npm install --save-dev @pellegrims/eslint-config-base eslint@^9
-   ```
-3. Configure your `eslint.config.js`:
+1. Install ESLint and one or more config packages.
+2. Create `eslint.config.js` in your project root.
+3. Export the config array.
 
-   ```javascript
-   // eslint.config.js
-   const baseConfig = require("@pellegrims/eslint-config-base");
+## Usage Examples
 
-   module.exports = [
-     ...baseConfig,
+### TypeScript project
 
-     // Add project-specific overrides
-     {
-       files: ["src/**/*.ts"],
-       rules: {
-         "no-console": "warn",
-       },
-     },
-   ];
-   ```
+```bash
+npm install --save-dev eslint@^9 @pellegrims/eslint-config-base
+```
 
-### Angular projects
+```js
+// eslint.config.js
+const baseConfig = require("@pellegrims/eslint-config-base");
 
-1. Create an `eslint.config.js` file in your project root.
-2. Install the Angular config and peer dependency:
-   ```bash
-   npm install --save-dev @pellegrims/eslint-config-angular eslint@^9
-   ```
-3. Configure your `eslint.config.js`:
+module.exports = [...baseConfig];
+```
 
-   ```javascript
-   // eslint.config.js
-   const angularConfig = require("@pellegrims/eslint-config-angular");
+### Angular project
 
-   module.exports = [
-     ...angularConfig,
+```bash
+npm install --save-dev eslint@^9 @pellegrims/eslint-config-angular
+```
 
-     // Add your project-specific overrides here
-     {
-       files: ["src/app/my-specific-file.ts"],
-       rules: {
-         "no-console": "off",
-       },
-     },
-   ];
-   ```
+```js
+// eslint.config.js
+const angularConfig = require("@pellegrims/eslint-config-angular");
 
-### Angular parity stack (optional addons)
+module.exports = [...angularConfig];
+```
 
-If you want stricter rules similar to the older rule surface, layer optional addons:
+### Angular + RxJS
+
+```bash
+npm install --save-dev eslint@^9 @pellegrims/eslint-config-angular-rxjs
+```
+
+```js
+// eslint.config.js
+const angularRxjsConfig = require("@pellegrims/eslint-config-angular-rxjs");
+
+module.exports = [...angularRxjsConfig];
+```
+
+### Angular + NgRx
+
+```bash
+npm install --save-dev eslint@^9 @pellegrims/eslint-config-angular-ngrx
+```
+
+```js
+// eslint.config.js
+const angularNgrxConfig = require("@pellegrims/eslint-config-angular-ngrx");
+
+module.exports = [...angularNgrxConfig];
+```
+
+### Add Unicorn rules
+
+Use Unicorn on top of base or Angular stacks:
+
+```bash
+npm install --save-dev eslint@^9 @pellegrims/eslint-config-unicorn
+```
+
+```js
+// eslint.config.js
+const angularConfig = require("@pellegrims/eslint-config-angular");
+const unicornConfig = require("@pellegrims/eslint-config-unicorn");
+
+module.exports = [...angularConfig, ...unicornConfig];
+```
+
+### Full Angular stack (Angular + RxJS + NgRx + Unicorn)
 
 ```bash
 npm install --save-dev \
-  @pellegrims/eslint-config-angular \
+  eslint@^9 \
   @pellegrims/eslint-config-angular-rxjs \
   @pellegrims/eslint-config-angular-ngrx \
-  @pellegrims/eslint-config-unicorn \
-  eslint@^9
+  @pellegrims/eslint-config-unicorn
 ```
 
-```javascript
+```js
 // eslint.config.js
-const angularConfig = require("@pellegrims/eslint-config-angular");
 const angularRxjsConfig = require("@pellegrims/eslint-config-angular-rxjs");
 const angularNgrxConfig = require("@pellegrims/eslint-config-angular-ngrx");
 const unicornConfig = require("@pellegrims/eslint-config-unicorn");
 
+module.exports = [...angularRxjsConfig, ...angularNgrxConfig, ...unicornConfig];
+```
+
+## Custom Project Rules
+
+Append your own config objects after the imported packages:
+
+```js
+// eslint.config.js
+const baseConfig = require("@pellegrims/eslint-config-base");
+
 module.exports = [
-  ...angularConfig,
-  ...angularRxjsConfig,
-  ...angularNgrxConfig,
-  ...unicornConfig,
+  ...baseConfig,
+  {
+    files: ["src/**/*.ts"],
+    rules: {
+      "no-console": "warn",
+    },
+  },
 ];
 ```
