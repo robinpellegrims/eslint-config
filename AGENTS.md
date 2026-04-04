@@ -80,19 +80,29 @@ npm run build -w @pellegrims/eslint-config-base
 ## Changesets and Release
 
 - This repo uses Changesets and publishes from `main` via GitHub Actions.
+- Default release flow (usual path):
+
+1. Add/commit a changeset with your package change.
+2. Open and merge a PR into `main`.
+3. `Release` workflow (`.github/workflows/release.yml`) runs on every push to `main`.
+4. `changesets/action` either:
+   - opens/updates a "Version Packages" PR when unreleased changesets exist, or
+   - publishes to npm when a version PR has already been merged and there are publishable version bumps.
+
 - For user-facing package changes, add a changeset:
 
 ```bash
 npm run changeset
 ```
 
-- Versioning is handled by:
+- Local/manual release commands are fallback/maintainer operations, not the default day-to-day flow.
+- Versioning command:
 
 ```bash
 npm run version:packages
 ```
 
-- Publish flow command (normally CI-driven):
+- Publish command (normally CI-driven via GitHub Actions):
 
 ```bash
 npm run publish:packages
