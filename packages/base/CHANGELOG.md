@@ -1,5 +1,11 @@
 # @pellegrims/eslint-config-base
 
+## 2.2.2
+
+### Patch Changes
+
+- 9f8eeba: Remove `import/exports-last`, `import/no-internal-modules`, and `import/no-default-export` from the base config.
+
 ## 2.2.1
 
 ### Patch Changes
