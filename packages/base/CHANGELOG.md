@@ -1,5 +1,11 @@
 # @pellegrims/eslint-config-base
 
+## 2.2.1
+
+### Patch Changes
+
+- eef1c17: Prefer `T[]` over `Array<T>` and allow shorthand arrow `void` expressions by default.
+
 ## 2.2.0
 
 ### Minor Changes
