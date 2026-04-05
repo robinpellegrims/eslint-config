@@ -123,7 +123,7 @@ const config = tseslint.config(
     },
     rules: {
       "import/named": "off",
-      "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
+      "@typescript-eslint/array-type": ["error", { default: "array" }],
       "@typescript-eslint/consistent-type-exports": "error",
       "@typescript-eslint/consistent-type-imports": [
         "warn",
@@ -142,6 +142,10 @@ const config = tseslint.config(
         { ignoreParameters: true },
       ],
       "@typescript-eslint/no-duplicate-type-constituents": "error",
+      "@typescript-eslint/no-confusing-void-expression": [
+        "error",
+        { ignoreArrowShorthand: true },
+      ],
       "@typescript-eslint/no-meaningless-void-operator": "error",
       "@typescript-eslint/no-shadow": ["error", { hoist: "all" }],
       "@typescript-eslint/no-unnecessary-condition": "warn",
