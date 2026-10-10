@@ -1,6 +1,6 @@
 {
   "name": "@pellegrims/eslint-config-angular",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Angular shareable ESLint configuration from @pellegrims",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,7 +35,7 @@
     "@angular-eslint/eslint-plugin": "^21.3.1",
     "@angular-eslint/eslint-plugin-template": "^21.3.1",
     "@angular-eslint/template-parser": "^21.3.1",
-    "@pellegrims/eslint-config-base": ">=2.0.1",
+    "@pellegrims/eslint-config-base": ">=3.0.0",
     "typescript-eslint": "^8.57.2"
   }
 }
