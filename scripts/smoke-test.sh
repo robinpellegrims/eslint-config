@@ -51,7 +51,7 @@ EOF
     cd "$fixture"
     npm install --no-package-lock --save-dev \
       "$ROOT_DIR/packages/base" \
-      "eslint@^9" \
+      "eslint@^10" \
       "typescript@^5"
     npx eslint src/example.ts
   )
@@ -105,7 +105,7 @@ EOF
       "$ROOT_DIR/packages/base" \
       "$ROOT_DIR/packages/angular" \
       "@angular/core@^17" \
-      "eslint@^9" \
+      "eslint@^10" \
       "typescript@^5"
     npx eslint src/app.component.ts
   )
