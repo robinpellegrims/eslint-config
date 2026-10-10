@@ -24,8 +24,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "peerDependencies": {
-    "eslint": "^9.0.0"
+    "eslint": "^9.38.0 || ^10.0.0"
   },
   "dependencies": {
     "@pellegrims/eslint-config-base": ">=2.0.0",
